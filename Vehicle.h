@@ -10,25 +10,34 @@
 #include <iostream>
 #include <string>
 
+template<typename T>
+
 class Vehicle{
 
 public:
     // Constructors
     Vehicle(); //Constructor
 
+
     // Set funcs
+    void setVehicleMake(std::string make);
+    void setVehicleModel(std::string model);
+    void setVehicleProdYear(T prodYear);
+    void setVehiclePrice(T price);
 
     // Get funcs
-    std::string getVehicleMake(); 
-    std::string getVehicleModel();
-    unsigned int
+    std::string getVehicleMake() const;
+    std::string getVehicleModel() const;
+    unsigned int getVehicleProdYear() const;
+    unsigned int getVehiclePrice() const;
 
     ~Vehicle(); //Destructor
+
 private:
     std::string make{};
     std::string model{};
-    unsigned int productionYear{0};
-    unsigned int price{0};
+    T productionYear;
+    T price;
     static int vehicleCount;
 };
 
