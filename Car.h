@@ -1,8 +1,22 @@
+// Car Class Specification (Child class of Vehicle)
 //
-// Created by bhorn on 11/12/2021.
 //
+// Author: Brian Horner
+// Edit History:
+// 11/12/2021 Initial Version
 
-#ifndef BHORNER_PA3_CAR_H
-#define BHORNER_PA3_CAR_H
+#ifndef CAR_H
+#define CAR_H
 
-#endif //BHORNER_PA3_CAR_H
+#include <iostream>
+#include "Vehicle.h"
+
+class Car: public  Vehicle{
+
+public:
+
+private:
+
+};
+
+#endif

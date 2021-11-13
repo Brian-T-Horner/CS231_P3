@@ -1,8 +1,23 @@
+// Truck Class Specification (Child class of Vehicle)
 //
-// Created by bhorn on 11/12/2021.
 //
+// Author: Brian Horner
+// Edit History:
+// 11/12/2021 Initial Version
 
-#ifndef BHORNER_PA3_TRUCK_H
-#define BHORNER_PA3_TRUCK_H
+#ifndef TRUCK_H
+#define TRUCK_H
 
-#endif //BHORNER_PA3_TRUCK_H
+#include "Vehicle.h"
+#include <iostream>
+
+class Truck: public Vehicle{
+
+public:
+
+private:
+
+
+};
+
+#endif

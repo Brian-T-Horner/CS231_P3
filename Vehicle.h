@@ -1,8 +1,35 @@
+// Vehicle Parent Class Specification
 //
-// Created by bhorn on 11/12/2021.
-//
+// Author: Brian Horner
+// Edit History:
+// 11/12/2021 Initial Version
 
-#ifndef BHORNER_PA3_VEHICLE_H
-#define BHORNER_PA3_VEHICLE_H
+#ifndef VEHICLE_H
+#define VEHICLE_H
 
-#endif //BHORNER_PA3_VEHICLE_H
+#include <iostream>
+#include <string>
+
+class Vehicle{
+
+public:
+    // Constructors
+    Vehicle(); //Constructor
+
+    // Set funcs
+
+    // Get funcs
+    std::string getVehicleMake(); 
+    std::string getVehicleModel();
+    unsigned int
+
+    ~Vehicle(); //Destructor
+private:
+    std::string make{};
+    std::string model{};
+    unsigned int productionYear{0};
+    unsigned int price{0};
+    static int vehicleCount;
+};
+
+#endif

@@ -1,4 +1,13 @@
+// Vehicle Parent class Implementation
 //
-// Created by bhorn on 11/12/2021.
-//
+// Author: Brian Horner
+// Edit History:
+// 11/12/2021 Initial Version
+
+// Standard Library Includes
+#include <iostream>
+
+
+// User built Includes:
+#include "Vehicle.h"
 
