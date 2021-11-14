@@ -26,7 +26,7 @@ Vehicle<T>::Vehicle(){
     std::cout << "Vehicle has been created. Please set the make, model, production year and price." <<std::endl;
 }
 
-// Need the next constructor
+
 
 
 // --- Set Functions ---
