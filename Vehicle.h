@@ -17,25 +17,26 @@ class Vehicle{
 public:
     // Constructors
     Vehicle(); //Constructor
+    Vehicle(T make, T model, T prodYear, T price);
 
 
     // Set funcs
-    void setVehicleMake(std::string make);
-    void setVehicleModel(std::string model);
-    void setVehicleProdYear(T prodYear);
-    void setVehiclePrice(T price);
+    void setVehicleMake(T m);
+    void setVehicleModel(T m);
+    void setVehicleProdYear(T n);
+    void setVehiclePrice(T n);
 
     // Get funcs
-    std::string getVehicleMake() const;
-    std::string getVehicleModel() const;
-    unsigned int getVehicleProdYear() const;
-    unsigned int getVehiclePrice() const;
+    T getVehicleMake() const;
+    T getVehicleModel() const;
+    T getVehicleProdYear() const;
+    T getVehiclePrice() const;
 
     ~Vehicle(); //Destructor
 
 private:
-    std::string make{};
-    std::string model{};
+    T make;
+    T model;
     T productionYear;
     T price;
     static int vehicleCount;
