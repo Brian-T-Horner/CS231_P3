@@ -26,6 +26,7 @@ Vehicle<T>::Vehicle(){
     std::cout << "Vehicle has been created. Please set the make, model, production year and price." <<std::endl;
 }
 
+// Need the next constructor
 
 
 // --- Set Functions ---
@@ -50,6 +51,10 @@ template <typename T>
 T Vehicle<T>::getVehicleProdYear() const {return productionYear;}
 template <typename T>
 T Vehicle<T>::getVehiclePrice() const {return price;}
+
+// --- Virtual Functions --
+
+// NEED TO ADD
 
 
 // --- Destructor ---

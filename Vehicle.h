@@ -3,6 +3,7 @@
 // Author: Brian Horner
 // Edit History:
 // 11/12/2021 Initial Version
+// 11/13/2021 Added virtual functions for start and window sticker
 
 #ifndef VEHICLE_H
 #define VEHICLE_H
@@ -33,6 +34,10 @@ public:
     T getVehiclePrice() const;
 
     ~Vehicle(); //Destructor
+
+    // Virtual Functions
+    virtual void start() const; // Virtual function to display info
+    virtual void displayWindowSticker() const; // Virtual function to display windowsticker
 
 private:
     T make;

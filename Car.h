@@ -4,6 +4,7 @@
 // Author: Brian Horner
 // Edit History:
 // 11/12/2021 Initial Version
+// 11/13/2021 Added get, set and virtual functions
 
 #ifndef CAR_H
 #define CAR_H
@@ -11,20 +12,30 @@
 #include <iostream>
 #include "Vehicle.h"
 
-template <typename CAR>
-class Car: public Vehicle<CAR>{
+template <typename T>
+class Car: public Vehicle<T>{
 
 public:
     // Constructors
     Car();
+    Car(T carMake, T carModel, T carProdYear, T carPrice, T color, T doors);
 
     // Set Functions
-
+    void setCarColor(T color);
+    void setCarDoors(T doors);
 
     // Get Functions
+    T getCarColor() const;
+    T getCarDoors() const;
+
+    // Virtual Functions
+    virtual void start() const override; // Virtual function to display info
+    virtual void displayWindowSticker() const override; // Virtual function to display windowsticker
+
 private:
-    std::string carColor;
-    unsigned int carDoors;
+    T carColor;
+    T carDoors;
+    static int carCount;
 
 };
 
