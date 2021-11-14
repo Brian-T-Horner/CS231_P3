@@ -36,7 +36,7 @@ Car<T, U>::Car(U carMake, U carModel, T carProdYear, T carPrice,
                U color, T doors):Vehicle<T, U>(carMake, carModel, carProdYear, carPrice) {
     carColor = color;
     carDoors = doors;
-    std::cout << "Car has been created with the following attributes.\n"
+    std::cout << "Car has been created with the following attributes.\n" <<
                  "Car Color: " <<carColor <<".\n" <<
                  "Car Door Count" <<carDoors << ".\n";
 }

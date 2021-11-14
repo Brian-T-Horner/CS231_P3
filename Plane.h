@@ -8,17 +8,48 @@
 #ifndef PLANE_H
 #define PLANE_H
 
-#include <istream>
+#include <iostream>
 #include "Vehicle.h"
-#include <string>
-#include <vector>
 
-template <typename PLANE>
-class Plane: public Vehicle<PLANE>{
+template <typename T, typename U>
+
+class Plane:public Vehicle<T, U>{
 
 public:
+    // Constructors
+    Plane();
+    Plane(U planeMake, U planeModel, T planeProdYear, T planePrice,
+          T nPassengers, T nEngines, T totSeats, T availSeats, U callSign);
+
+    // Set Functions
+    void setNumOfPassengers(T n);
+    void setNumOfEngines(T n);
+    void setTotalSeats(T n);
+    void setAvaliableSeats(T n);
+    void setPlaneCallSign(U s);
+
+
+    // Get Functions
+    T getNumOfPassengers() const;
+    T getNumOfEngines() const;
+    T getTotalSeats() const;
+    T getAvailableSeats() const;
+    U getPlaneCallSign() const;
+
+    // Virtual Functions
+    virtual void start() const override; // Virtual function to display info
+    virtual void displayWindowSticker() const override; // Virtual function to display windo
+
+
+    ~Plane(); // Destructor
+
 
 private:
-    std::vector<std::string> passengers;
+    T numOfPassengers;
+    T numOfEngines;
+    T totalSeats;
+    T avaliableSeats;
+    U planeCallSign;
 };
+
 #endif
