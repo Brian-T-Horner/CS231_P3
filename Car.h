@@ -12,30 +12,31 @@
 #include <iostream>
 #include "Vehicle.h"
 
-template <typename T>
-class Car: public Vehicle<T>{
+template <typename T, typename U>
+class Car: public Vehicle<T, U>{
 
 public:
     // Constructors
     Car();
-    Car(T carMake, T carModel, T carProdYear, T carPrice, T color, T doors);
+    Car(U carMake, U carModel, T carProdYear, T carPrice, U color, T doors);
 
     // Set Functions
-    void setCarColor(T color);
+    void setCarColor(U color);
     void setCarDoors(T doors);
 
     // Get Functions
-    T getCarColor() const;
+    U getCarColor() const;
     T getCarDoors() const;
 
     // Virtual Functions
     virtual void start() const override; // Virtual function to display info
     virtual void displayWindowSticker() const override; // Virtual function to display windowsticker
 
+    ~Car(); //Destructor
+
 private:
-    T carColor;
+    U carColor;
     T carDoors;
-    static int carCount;
 
 };
 

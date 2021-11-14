@@ -24,7 +24,6 @@ template<typename T, typename U>
 Vehicle<T, U>::Vehicle(){
     make = "";
     model = "";
-    vehicleCount++;
     std::cout << "Vehicle has been created. Please set the make, model, production year and price." <<std::endl;
 }
 
@@ -34,11 +33,11 @@ Vehicle<T, U>::Vehicle(U m, U mo, T prodYear, T p){
     model = mo;
     productionYear = prodYear;
     price = p;
-    std::cout << "Vehicle has been created with the following attributes:" <<
-                 "Make: " <<make <<".\n" <<
-                 "Model: " <<model <<".\n" <<
-                 "Production Year: " <<productionYear <<".\n"<<
-                 "Price: " <<price <<".">>std::endl;
+//    std::cout << "Vehicle has been created with the following attributes:" <<
+//                 "Make: " <<getVehicleMake() <<".\n" <<
+//                 "Model: " <<getVehicleModel() <<".\n" <<
+//                 "Production Year: " <<getVehicleProdYear() <<".\n"<<
+//                 "Price: " <<getVehiclePrice() <<".">>std::endl;
 
 
 }
@@ -84,4 +83,4 @@ void Vehicle<T, U>::displayWindowSticker() const {
 
 // --- Destructor ---
 template <typename T, typename U>
-Vehicle<T, U>::~Vehicle<T, U>() {vehicleCount--;}
+Vehicle<T, U>::~Vehicle<T, U>() {}

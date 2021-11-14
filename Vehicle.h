@@ -44,7 +44,6 @@ private:
     U model;
     T productionYear;
     T price;
-    static int vehicleCount;
 };
 
 #endif
