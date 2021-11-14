@@ -11,25 +11,25 @@
 #include <iostream>
 #include <string>
 
-template<typename T>
+template<typename T, typename U>
 
 class Vehicle{
 
 public:
     // Constructors
     Vehicle(); //Constructor
-    Vehicle(T make, T model, T prodYear, T price);
+    Vehicle(U m, U model, T prodYear, T price);
 
 
     // Set funcs
-    void setVehicleMake(T m);
-    void setVehicleModel(T m);
+    void setVehicleMake(U m);
+    void setVehicleModel(U m);
     void setVehicleProdYear(T n);
     void setVehiclePrice(T n);
 
     // Get funcs
-    T getVehicleMake() const;
-    T getVehicleModel() const;
+    U getVehicleMake() const;
+    U getVehicleModel() const;
     T getVehicleProdYear() const;
     T getVehiclePrice() const;
 
@@ -40,8 +40,8 @@ public:
     virtual void displayWindowSticker() const; // Virtual function to display windowsticker
 
 private:
-    T make;
-    T model;
+    U make;
+    U model;
     T productionYear;
     T price;
     static int vehicleCount;
