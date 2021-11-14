@@ -11,11 +11,20 @@
 #include <iostream>
 #include "Vehicle.h"
 
-class Car: public  Vehicle{
+template <typename CAR>
+class Car: public Vehicle<CAR>{
 
 public:
+    // Constructors
+    Car();
 
+    // Set Functions
+
+
+    // Get Functions
 private:
+    std::string carColor;
+    unsigned int carDoors;
 
 };
 

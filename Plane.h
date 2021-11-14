@@ -10,13 +10,15 @@
 
 #include <istream>
 #include "Vehicle.h"
+#include <string>
+#include <vector>
 
-class Plane: public Vehicle{
+template <typename PLANE>
+class Plane: public Vehicle<PLANE>{
 
 public:
 
 private:
-
+    std::vector<std::string> passengers;
 };
-
 #endif

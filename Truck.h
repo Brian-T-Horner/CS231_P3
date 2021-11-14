@@ -11,12 +11,8 @@
 #include "Vehicle.h"
 #include <iostream>
 
-class Truck: public Vehicle{
-
-public:
-
-private:
-
+template <typename TRUCK>
+class Truck: public Vehicle<TRUCK>{
 
 };
 
