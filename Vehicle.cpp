@@ -13,6 +13,7 @@
 // User built Includes:
 #include "Vehicle.h"
 
+// Template options for the class
 template class Vehicle<int, std::string>;
 template class Vehicle<double, std::string>;
 template class Vehicle<unsigned int, std::string>;
@@ -33,11 +34,11 @@ Vehicle<T, U>::Vehicle(U m, U mo, T prodYear, T p){
     model = mo;
     productionYear = prodYear;
     price = p;
-//    std::cout << "Vehicle has been created with the following attributes:" <<
-//                 "Make: " <<getVehicleMake() <<".\n" <<
-//                 "Model: " <<getVehicleModel() <<".\n" <<
-//                 "Production Year: " <<getVehicleProdYear() <<".\n"<<
-//                 "Price: " <<getVehiclePrice() <<".">>std::endl;
+    std::cout << "Vehicle has been created with the following attributes:" <<
+                 "Make: " <<getVehicleMake() <<".\n" <<
+                 "Model: " <<getVehicleModel() <<".\n" <<
+                 "Production Year: " <<getVehicleProdYear() <<".\n"<<
+                 "Price: " <<getVehiclePrice() <<"." << std::endl;
 
 
 }

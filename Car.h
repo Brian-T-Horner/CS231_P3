@@ -5,6 +5,7 @@
 // Edit History:
 // 11/12/2021 Initial Version
 // 11/13/2021 Added get, set and virtual functions
+// 11/13 2021 Fixed templates to accept two types
 
 #ifndef CAR_H
 #define CAR_H

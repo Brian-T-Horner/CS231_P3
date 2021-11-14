@@ -4,6 +4,7 @@
 // Edit History:
 // 11/12/2021 Initial Version
 // 11/13/2021 Added virtual functions for start and window sticker
+// 11/13 2021 Fixed templates to accept two types
 
 #ifndef VEHICLE_H
 #define VEHICLE_H

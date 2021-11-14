@@ -4,6 +4,9 @@
 // Author: Brian Horner
 // Edit History:
 // 11/12/2021 Initial Version
+// 11/13/2021 Added constructor, get & set functions and destructor
+// 11/13/2021 Added virtual function overrides
+// 11/13 2021 Fixed templates to accept two types
 
 // Standard Library Includes
 #include <iostream>
@@ -13,6 +16,7 @@
 // User built Includes:
 #include "Car.h"
 
+// Template options for the class
 template class Car<int, std::string>;
 template class Car<unsigned int, std::string>;
 template class Car<double, std::string>;
