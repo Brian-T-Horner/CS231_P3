@@ -4,7 +4,7 @@
 // Edit History:
 // 11/12/2021 Initial Version
 // 11/14/2021 Added tests for Vehicle Class
-// 11/14/2021
+// 11/14/2021 Added test for Car child Class
 
 // Standard Library Includes
 #include <iostream>
