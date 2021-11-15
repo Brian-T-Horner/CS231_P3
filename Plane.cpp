@@ -6,6 +6,7 @@
 // 11/12/2021 Initial Version
 // 11/13/2021 Added constructor, destructor, set, get and virtual functions
 // 11/13/2021 Added start procedure function implementation
+// 11/13/2021 Added window sticker function implementation
 
 // Standard Library Includes
 #include <iostream>
@@ -25,7 +26,7 @@ Plane<T, U>::Plane():Vehicle<T, U>(){
     numOfPassengers = 0;
     numOfEngines = 0;
     totalSeats = 0;
-    avaliableSeats = 0;
+    availableSeats = 0;
     planeCallSign = "";
     std::cout << "Plane has been created. Please set the make, model, "
                  "production year, price, number of passengers, number of "
@@ -41,7 +42,7 @@ Plane<T, U>::Plane(U planeMake, U planeModel,T planeProdYear, T planePrice,
                        numOfPassengers = nPassengers;
                        numOfEngines = nEngines;
                        totalSeats = totSeats;
-                       avaliableSeats = availSeats;
+                       availableSeats = availSeats;
                        planeCallSign = callSign;
 
                        std::cout << "Plane has been created with the "
@@ -49,7 +50,7 @@ Plane<T, U>::Plane(U planeMake, U planeModel,T planeProdYear, T planePrice,
                                     "Plane Call Sign: " <<planeCallSign <<
                                     "\nNumber of Passengers "
                                     <<numOfPassengers <<
-                                    "\nAvaliable Seats: "<<avaliableSeats <<
+                                    "\nAvailable Seats: "<<availableSeats <<
                                     "\nTotal Seats: " <<totalSeats <<
                                     "\nNumber of Engines " <<numOfEngines
                                     <<std::endl;
@@ -68,7 +69,7 @@ template<typename T, typename U>
 void Plane<T, U>::setTotalSeats(T n) {totalSeats=n;}
 
 template<typename T, typename U>
-void Plane<T, U>::setAvaliableSeats(T n) {avaliableSeats=n;}
+void Plane<T, U>::setAvailableSeats(T n) {availableSeats=n;}
 
 template<typename T, typename U>
 void Plane<T, U>::setPlaneCallSign(U s) {planeCallSign=s;}
@@ -84,7 +85,7 @@ template <typename T, typename U>
 T Plane<T, U>::getTotalSeats() const {return totalSeats;}
 
 template<typename T, typename U>
-T Plane<T, U>::getAvailableSeats() const {return avaliableSeats;}
+T Plane<T, U>::getAvailableSeats() const {return availableSeats;}
 
 template<typename T, typename U>
 U Plane<T, U>::getPlaneCallSign() const {return planeCallSign;}
@@ -93,13 +94,8 @@ U Plane<T, U>::getPlaneCallSign() const {return planeCallSign;}
 // --- Virtual Functions ---
 template <typename T, typename U>
 void Plane<T, U>::start() const {
+    std::cout << "Plane ";
     Vehicle<T, U>::start();
-    std::cout << "..." <<std::endl;
-}
-
-template <typename T, typename U>
-void Plane<T, U>::displayWindowSticker() const {
-    Vehicle<T, U>::displayWindowSticker();
     std::cout<<
     "2. Press ignition button.\n" <<
     "3. Release brakes from planes landing gear.\n" <<
@@ -112,6 +108,20 @@ void Plane<T, U>::displayWindowSticker() const {
     "." <<
     std::endl;
 }
+
+template <typename T, typename U>
+void Plane<T, U>::displayWindowSticker() const {
+    std::cout << "Plane ";
+    Vehicle<T, U>::displayWindowSticker();
+   std::cout <<
+   "Call Sign: "<<this->planeCallSign<<std::endl<<
+   "Engines: " <<this->numOfEngines<<std::endl<<
+   "Total Seats: "<<this->totalSeats<<std::endl<<
+   "Available Seats: "<<this->availableSeats<<std::endl<<
+   "Number of Passengers: " <<this->numOfPassengers<<std::endl;
+
+}
+
 // --- Destructor --
 template <typename T, typename U>
 Plane<T, U>::~Plane<T, U>() {}

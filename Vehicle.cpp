@@ -6,6 +6,7 @@
 // 11/13/2021 Added get and set functions
 // 11/13/2021 Fixed specification and implementation for two types
 // 11/13/2021 Added start procedure function implementation
+// 11/13/2021 Added window sticker function implementation
 
 // Standard Library Includes
 #include <iostream>
@@ -73,15 +74,20 @@ T Vehicle<T, U>::getVehiclePrice() const {return price;}
 // --- Virtual Functions --
 template <typename T, typename U>
 void Vehicle<T, U>::start() const {
-    std::cout << "Steps to start: \n" <<
+    std::cout << "Starting Procedure: \n" <<
     "1. Insert key into ignition.\n";
 }
 
 template <typename T, typename U>
 void Vehicle<T, U>::displayWindowSticker() const {
-    std::cout << "..." <<std::endl;
+    std::cout <<
+    "Current Information:" <<std::endl<<
+    "Price: " <<this->price <<std::endl <<
+    "Make: " <<this->make << std::endl <<
+    "Model: " << this->model << std::endl <<
+    "Production Year: " <<this->productionYear <<std::endl;
 }
-// NEED TO ADD
+
 
 
 // --- Destructor ---

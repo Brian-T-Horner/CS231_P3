@@ -8,6 +8,7 @@
 // 11/13/2021 Added virtual function overrides
 // 11/13 2021 Fixed templates to accept two types
 // 11/13/2021 Added start procedure function implementation
+// 11/13/2021 Added window sticker function implementation
 
 // Standard Library Includes
 #include <iostream>
@@ -27,19 +28,23 @@ template <typename T, typename U>
 Car<T, U>::Car():Vehicle<T, U>(){
     carColor = "";
     carDoors = 0;
+    carType = "";
     std::cout << "Car has been created. Please set the make, model, "
-                 "production year, price, color and number of doors"
-                 "."<<std::endl;
+                 "production year, price, color, number of doors and type."
+                 <<std::endl;
 }
 
 template <typename T, typename U>
 Car<T, U>::Car(U carMake, U carModel, T carProdYear, T carPrice,
-               U color, T doors):Vehicle<T, U>(carMake, carModel, carProdYear, carPrice) {
+               U color, T doors, U type):Vehicle<T, U>(carMake, carModel,
+                                                carProdYear, carPrice) {
     carColor = color;
     carDoors = doors;
+    carType = type;
     std::cout << "Car has been created with the following attributes.\n" <<
-                 "Car Color: " <<carColor <<".\n" <<
-                 "Car Door Count" <<carDoors << ".\n";
+                 "Car Color: " <<this->carColor <<std::endl<<
+                 "Car Door Count: " <<this->carDoors << std::endl<<
+                 "Car Type: " <<this->carType <<std::endl;
 }
 
 
@@ -51,6 +56,8 @@ template <typename T, typename U>
 void Car<T, U>::setCarColor(U color) {carColor = color;}
 template <typename T, typename U>
 void Car<T, U>::setCarDoors(T doors) {carDoors = doors;}
+template <typename T, typename U>
+void Car<T, U>::setCarType(U type) {carType = type;}
 
 
 // --- Get Functions ---
@@ -58,11 +65,14 @@ template <typename T, typename U>
 U Car<T, U>::getCarColor() const {return carColor;}
 template <typename T, typename U>
 T Car<T, U>::getCarDoors() const {return carDoors;}
+template <typename T, typename U>
+U Car<T,U>::getCarType() const {return carType;}
 
 
 // --- Virtual Functions ---
 template <typename T, typename U>
 void Car<T, U>::start() const {
+    std::cout << "Car ";
     Vehicle<T, U>::start();
     std::cout <<
     "2. Press in brake pedal.\n" <<
@@ -74,8 +84,12 @@ void Car<T, U>::start() const {
 
 template <typename T, typename U>
 void Car<T, U>::displayWindowSticker() const {
+    std::cout<<"Car ";
     Vehicle<T, U>::displayWindowSticker();
-    std::cout<< "..." <<std::endl;
+    std::cout<<
+    "Type of Car: " <<this->carType <<std::endl<<
+    "Color: "<<this->carColor<<std::endl<<
+    "Number of doors: " <<this->carDoors<<std::endl;
 }
 
 // --- Destructor ---

@@ -25,7 +25,7 @@ public:
     void setNumOfPassengers(T n);
     void setNumOfEngines(T n);
     void setTotalSeats(T n);
-    void setAvaliableSeats(T n);
+    void setAvailableSeats(T n);
     void setPlaneCallSign(U s);
 
 
@@ -48,7 +48,7 @@ private:
     T numOfPassengers;
     T numOfEngines;
     T totalSeats;
-    T avaliableSeats;
+    T availableSeats;
     U planeCallSign;
 };
 

@@ -7,6 +7,7 @@
 // 11/13/2021 Added constructor, set, get and destructor implementations
 // 11/13/2021 Added virtual functions implementations
 // 11/13/2021 Added start procedure function implementation
+// 11/13/2021 Added window sticker function implementation
 
 // Standard Library Includes
 #include <iostream>
@@ -72,6 +73,7 @@ void Truck<T, U>::setTruckColor(U color) {truckColor=color;}
 // --- Virtual Functions ---
 template <typename T, typename U>
 void Truck<T, U>::start() const {
+    std::cout<<"Truck ";
     Vehicle<T, U>::start();
     std::cout <<
     "2. Press in brake pedal.\n" <<
@@ -84,8 +86,13 @@ void Truck<T, U>::start() const {
 
 template <typename T, typename U>
 void Truck<T, U>::displayWindowSticker() const {
+    std::cout <<"Truck ";
     Vehicle<T, U>::displayWindowSticker();
-    std::cout << "..." <<std::endl;
+    std::cout <<
+    "Color: " << this->truckColor <<std::endl <<
+    "Max Load: " <<this->truckBedMaxLoad <<std::endl<<
+    "Contents: " <<this->truckContents <<std::endl;
+
 }
 
 // --- Destructor ---
