@@ -141,7 +141,7 @@ U Plane<T, U>::getPlaneCallSign() const {return planeCallSign;}
 // --- Virtual Functions ---
 template <typename T, typename U>
 void Plane<T, U>::start() const {
-    std::cout << "Plane ";
+    std::cout << "\nPlane ";
     Vehicle<T, U>::start();
     std::cout<<
     "2. Press ignition button.\n" <<
@@ -158,7 +158,7 @@ void Plane<T, U>::start() const {
 
 template <typename T, typename U>
 void Plane<T, U>::displayWindowSticker() const {
-    std::cout << "Plane ";
+    std::cout << "\nPlane ";
     Vehicle<T, U>::displayWindowSticker();
    std::cout <<
    "Call Sign: "<<this->planeCallSign<<std::endl<<

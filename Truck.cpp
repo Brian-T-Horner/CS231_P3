@@ -83,7 +83,7 @@ void Truck<T, U>::setTruckColor(U color) {truckColor=color;}
 // --- Virtual Functions ---
 template <typename T, typename U>
 void Truck<T, U>::start() const {
-    std::cout<<"Truck ";
+    std::cout<<"\nTruck ";
     Vehicle<T, U>::start();
     std::cout <<
     "2. Press in brake pedal.\n" <<
@@ -96,7 +96,7 @@ void Truck<T, U>::start() const {
 
 template <typename T, typename U>
 void Truck<T, U>::displayWindowSticker() const {
-    std::cout <<"Truck ";
+    std::cout <<"\nTruck ";
     Vehicle<T, U>::displayWindowSticker();
     std::cout <<
     "Color: " << this->truckColor <<std::endl <<

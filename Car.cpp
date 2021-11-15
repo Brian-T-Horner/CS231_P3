@@ -89,19 +89,19 @@ U Car<T,U>::getCarType() const {return carType;}
 // --- Virtual Functions ---
 template <typename T, typename U>
 void Car<T, U>::start() const {
-    std::cout << "Car ";
+    std::cout << "\nCar ";
     Vehicle<T, U>::start();
     std::cout <<
     "2. Press in brake pedal.\n" <<
     "3. Turn key over.\n" <<
     "4. Move shifter into drive or reverse according to surroundings.\n" <<
-    "5. If reversed move into position to be able to drive forward." <<
+    "5. If reversed move into position to be able to drive forward.\n" <<
     std::endl;
 }
 
 template <typename T, typename U>
 void Car<T, U>::displayWindowSticker() const {
-    std::cout<<"Car ";
+    std::cout<<"\nCar ";
     Vehicle<T, U>::displayWindowSticker();
     std::cout<<
     "Type of Car: " <<this->carType <<std::endl<<

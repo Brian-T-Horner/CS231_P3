@@ -3,6 +3,8 @@
 // Author: Brian Horner
 // Edit History:
 // 11/12/2021 Initial Version
+// 11/14/2021 Added tests for Vehicle Class
+// 11/14/2021
 
 // Standard Library Includes
 #include <iostream>
@@ -121,16 +123,82 @@ int main(){
     <<std::endl;
 
     // Virtual Function Tests
-    std::cout<<"\n -- Virtual Function Tests -- \n";
+    std::cout<<"\n -- Vehicle Virtual Function Tests -- \n";
     vehicle1.start();
     vehicle3.displayWindowSticker();
 
     // -- Car Tests --
     std::cout << "\n-- Car Constructor Tests -- \n";
+    Car<unsigned int, std::string> briansCar("Honda", "Accord",
+                                             2021, 30'000,
+                                             "Automatic", "Black",
+                                             4, "Sedan");
+    Car<int, std::string> camisCar;
+    Car<double, std::string> momsCar;
 
     std::cout << "\n-- Car Get and Set Tests -- \n";
+
+    camisCar.setCarType("Chevy");
+    std::cout << "Cami's car type is " <<camisCar.getCarType()<<std::endl;
+
+    try{
+        camisCar.setCarDoors(-1);
+    }catch(const std::invalid_argument& e){
+        std::cout <<"Exception from " <<e.what() <<std::endl;
+    }
+    try{
+    camisCar.setCarDoors(4);
+    }catch(const std::invalid_argument& e){
+        std::cout <<"Exception from " <<e.what() <<std::endl;
+    }
+    std::cout << "Cami's car has " <<camisCar.getCarDoors() <<" doors."
+    <<std::endl;
+
+
+    camisCar.setCarColor("Pink");
+    std::cout <<"Cami's car is " <<camisCar.getCarColor()<<std::endl;
+
+    momsCar.setCarType("Coup");
+    std::cout<< "Mom's car is a "<<momsCar.getCarType()<<std::endl;
+
     std::cout << "\n-- Car Virtual Functions Tests -- \n";
+
+    briansCar.start();
+    briansCar.displayWindowSticker();
+
     std::cout << "\n-- Car Inherited Methods Tests -- \n";
+
+    briansCar.setVehicleMake("Audi");
+    std::cout<< "Brian's car is a " <<briansCar.getVehicleMake()<<std::endl;
+    momsCar.setVehicleModel("Charger");
+    std::cout << "Mom's car is a " <<momsCar.getVehicleModel()<<std::endl;
+
+    try{
+        momsCar.setVehicleProdYear(-1);
+    }catch(const std::invalid_argument& e){
+        std::cout <<"Exception from " <<e.what() <<std::endl;
+    }
+    try{
+        momsCar.setVehicleProdYear(2020);
+    }catch(const std::invalid_argument& e){
+        std::cout <<"Exception from " <<e.what() <<std::endl;
+    }
+    std::cout << "Mom's car has a production year of  " <<momsCar.getVehicleProdYear()<<std::endl;
+
+    try{
+        camisCar.setVehiclePrice(-1);
+    }catch(const std::invalid_argument& e){
+        std::cout <<"Exception from " <<e.what() <<std::endl;
+    }
+    try{
+        camisCar.setVehiclePrice(40'000);
+    }catch(const std::invalid_argument& e){
+        std::cout <<"Exception from " <<e.what() <<std::endl;
+    }
+
+    std::cout <<"Cami's car has a price of "<<camisCar.getVehiclePrice()
+    <<std::endl;
+
 
     // -- Truck Tests
 

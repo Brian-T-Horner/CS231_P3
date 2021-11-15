@@ -154,7 +154,7 @@ void Vehicle<T, U>::start() const {
 template <typename T, typename U>
 void Vehicle<T, U>::displayWindowSticker() const {
     std::cout <<
-    "\nCurrent Information:" <<std::endl<<
+    "Current Information:" <<std::endl<<
     "Make: " <<this->make << std::endl <<
     "Model: " << this->model << std::endl <<
     "Price: " <<this->price <<std::endl <<
