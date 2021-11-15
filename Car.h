@@ -19,8 +19,8 @@ class Car: public Vehicle<T, U>{
 public:
     // Constructors
     Car();
-    Car(U carMake, U carModel, T carProdYear, T carPrice, U color, T doors,
-        U type);
+    Car(U carMake, U carModel, T carProdYear, T carPrice, U carTrans, U
+    color, T doors, U type);
 
     // Set Functions
     void setCarColor(U color);
@@ -34,7 +34,8 @@ public:
 
     // Virtual Functions
     virtual void start() const override; // Virtual function to display info
-    virtual void displayWindowSticker() const override; // Virtual function to display windowsticker
+    // Virtual function to display window sticker
+    virtual void displayWindowSticker() const override;
 
     ~Car(); //Destructor
 

@@ -18,7 +18,7 @@ class Plane:public Vehicle<T, U>{
 public:
     // Constructors
     Plane();
-    Plane(U planeMake, U planeModel, T planeProdYear, T planePrice,
+    Plane(U planeMake, U planeModel, T planeProdYear, T planePrice, U trans,
           T nPassengers, T nEngines, T totSeats, T availSeats, U callSign);
 
     // Set Functions

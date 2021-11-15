@@ -30,15 +30,16 @@ Plane<T, U>::Plane():Vehicle<T, U>(){
     planeCallSign = "";
     std::cout << "Plane has been created. Please set the make, model, "
                  "production year, price, number of passengers, number of "
-                 "engines, total seats, avaliable seats, and plane call sign"
+                 "engines, total seats, available seats, and plane call sign"
                  "." <<std::endl;
 }
 
 template <typename T, typename U>
-Plane<T, U>::Plane(U planeMake, U planeModel,T planeProdYear, T planePrice,
-                   T nPassengers, T nEngines,T totSeats, T availSeats,
+Plane<T, U>::Plane(U planeMake, U planeModel,T planeProdYear, T planePrice, U
+trans,T nPassengers, T nEngines,T totSeats, T availSeats,
                    U callSign):Vehicle<T, U>(planeMake, planeModel,
-                                             planeProdYear, planePrice) {
+                                             planeProdYear, planePrice,
+                                             trans) {
                        numOfPassengers = nPassengers;
                        numOfEngines = nEngines;
                        totalSeats = totSeats;

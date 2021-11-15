@@ -35,9 +35,9 @@ Car<T, U>::Car():Vehicle<T, U>(){
 }
 
 template <typename T, typename U>
-Car<T, U>::Car(U carMake, U carModel, T carProdYear, T carPrice,
+Car<T, U>::Car(U carMake, U carModel, T carProdYear, T carPrice, U carTrans,
                U color, T doors, U type):Vehicle<T, U>(carMake, carModel,
-                                                carProdYear, carPrice) {
+                                                carProdYear, carPrice, carTrans) {
     carColor = color;
     carDoors = doors;
     carType = type;

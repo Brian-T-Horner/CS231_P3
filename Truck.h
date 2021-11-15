@@ -18,7 +18,7 @@ public:
     // Constructors
     Truck();
     Truck(U truckMake, U trucklModel, T truckProdYear, T truckPrice, U
-    truckColor, T truckBedMaxLoad, U truckBedContents);
+    truckTrans, U truckColor, T truckBedMaxLoad, U truckBedContents);
 
     // Set functions
     void setTruckColor(U color);

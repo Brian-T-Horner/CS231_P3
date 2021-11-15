@@ -35,9 +35,10 @@ Truck<T, U>::Truck():Vehicle<T, U>(){
 
 template <typename T, typename U>
 Truck<T, U>::Truck(U truckMake, U truckModel, T truckProdYear, T truckPrice,
-                   U truckColor, T truckBedMaxLoad,U truckBedContents)
+                   U truckTrans, U truckColor, T truckBedMaxLoad,U
+                   truckBedContents)
                    :Vehicle<T, U>(truckMake, truckModel, truckProdYear,
-                                  truckPrice){
+                                  truckPrice, truckTrans){
                        this-> truckColor = truckColor;
                        this-> truckBedMaxLoad = truckBedMaxLoad;
                        this-> truckContents = truckBedContents;
