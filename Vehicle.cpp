@@ -7,6 +7,7 @@
 // 11/13/2021 Fixed specification and implementation for two types
 // 11/13/2021 Added start procedure function implementation
 // 11/13/2021 Added window sticker function implementation
+// 11/13/2021 Added transmission type attribute and methods
 
 // Standard Library Includes
 #include <iostream>
@@ -27,20 +28,24 @@ template<typename T, typename U>
 Vehicle<T, U>::Vehicle(){
     make = "";
     model = "";
-    std::cout << "Vehicle has been created. Please set the make, model, production year and price." <<std::endl;
+    transmission = "";
+    std::cout << "Vehicle has been created. Please set the make, model, "
+                 "production year, price and transmission type." <<std::endl;
 }
 
 template <typename T, typename U>
-Vehicle<T, U>::Vehicle(U m, U mo, T prodYear, T p){
+Vehicle<T, U>::Vehicle(U m, U mo, T prodYear, T p, U trans){
     make = m;
     model = mo;
     productionYear = prodYear;
     price = p;
+    transmission = trans;
     std::cout << "Vehicle has been created with the following attributes:" <<
-                 "Make: " <<getVehicleMake() <<".\n" <<
-                 "Model: " <<getVehicleModel() <<".\n" <<
-                 "Production Year: " <<getVehicleProdYear() <<".\n"<<
-                 "Price: " <<getVehiclePrice() <<"." << std::endl;
+                 "Make: " <<this->make <<".\n" <<
+                 "Model: " <<this->model <<".\n" <<
+                 "Production Year: " <<this->productionYear <<".\n"<<
+                 "Price: " <<this->price <<".\n" <<
+                 "Transmission Type: "<<this->transmission <<std::endl;
 
 
 }
@@ -57,8 +62,8 @@ template <typename T, typename U>
 void Vehicle<T, U>::setVehiclePrice(T n) {price=n;}
 template <typename T, typename U>
 void Vehicle<T, U>::setVehicleProdYear(T n) {productionYear=n;}
-
-// Add checks for negatives
+template <typename T, typename U>
+void Vehicle<T, U>::setVehicleTransmission(U trans) {transmission=trans;}
 
 
 // --- Get Functions ---
@@ -70,6 +75,8 @@ template <typename T, typename U>
 T Vehicle<T, U>::getVehicleProdYear() const {return productionYear;}
 template <typename T, typename U>
 T Vehicle<T, U>::getVehiclePrice() const {return price;}
+template <typename T, typename U>
+U Vehicle<T, U>::getVehicleTransmission() const {return transmission;}
 
 // --- Virtual Functions --
 template <typename T, typename U>
@@ -82,9 +89,10 @@ template <typename T, typename U>
 void Vehicle<T, U>::displayWindowSticker() const {
     std::cout <<
     "Current Information:" <<std::endl<<
-    "Price: " <<this->price <<std::endl <<
     "Make: " <<this->make << std::endl <<
     "Model: " << this->model << std::endl <<
+    "Price: " <<this->price <<std::endl <<
+    "Transmission Type: "<<this->transmission<<std::endl<<
     "Production Year: " <<this->productionYear <<std::endl;
 }
 

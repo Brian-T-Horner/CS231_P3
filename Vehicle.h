@@ -5,6 +5,7 @@
 // 11/12/2021 Initial Version
 // 11/13/2021 Added virtual functions for start and window sticker
 // 11/13 2021 Fixed templates to accept two types
+// 11/13/2021 Added transmission type attribute with respective methods
 
 
 #ifndef VEHICLE_H
@@ -20,7 +21,7 @@ class Vehicle{
 public:
     // Constructors
     Vehicle(); //Constructor
-    Vehicle(U m, U model, T prodYear, T price);
+    Vehicle(U m, U model, T prodYear, T price, U trans);
 
 
     // Set funcs
@@ -28,12 +29,14 @@ public:
     void setVehicleModel(U m);
     void setVehicleProdYear(T n);
     void setVehiclePrice(T n);
+    void setVehicleTransmission(U trans);
 
     // Get funcs
     U getVehicleMake() const;
     U getVehicleModel() const;
     T getVehicleProdYear() const;
     T getVehiclePrice() const;
+    U getVehicleTransmission() const;
 
     ~Vehicle(); //Destructor
 
@@ -46,6 +49,7 @@ private:
     U model;
     T productionYear;
     T price;
+    U transmission;
 };
 
 #endif
