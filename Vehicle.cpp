@@ -9,6 +9,8 @@
 // 11/13/2021 Added window sticker function implementation
 // 11/13/2021 Added transmission type attribute and methods
 // 11/13/2021 Added price manipulating methods
+// 11/13/2021 Added exception handing for price, year, price manipulation
+
 
 // Standard Library Includes
 #include <iostream>
@@ -38,7 +40,12 @@ template <typename T, typename U>
 Vehicle<T, U>::Vehicle(U m, U mo, T prodYear, T p, U trans){
     make = m;
     model = mo;
-    productionYear = prodYear;
+    if(prodYear > 1885){
+        productionYear = prodYear;
+    }else{
+        throw std::invalid_argument("Invalid input for production year of "
+                                    "vehicle.");
+    }
     price = p;
     transmission = trans;
     std::cout << "Vehicle has been created with the following attributes:" <<
@@ -55,28 +62,75 @@ Vehicle<T, U>::Vehicle(U m, U mo, T prodYear, T p, U trans){
 
 // Percent price changes
 template <typename T, typename U>
-void Vehicle<T, U>::giveDiscountPercent(T n) {price = price-(price * (n/100));}
+void Vehicle<T, U>::giveDiscountPercent(T n) {
+    if(n >= 0){
+        price = (price-(price * (n/100)));
+    }else{
+        throw std::invalid_argument("Invalid input for price discount by "
+                                    "percent. Input ignored...please try again.");
+    }
+}
+
 template <typename T, typename U>
-void Vehicle<T, U>::raisePricePercent(T n) {price = price + (price* (n/100));}
+void Vehicle<T, U>::raisePricePercent(T n) {
+    if(n >= 0){
+        price = (price + (price* (n/100)));
+    }else{
+        throw std::invalid_argument("Invalid input for price raise by percent. "
+                                    "Input ignored...please try again.");
+    }
+
+}
 
 // Value price changes
 template <typename T, typename U>
-void  Vehicle<T, U>::giveDiscountValue(T n) {price-=n;}
+void  Vehicle<T, U>::giveDiscountValue(T n) {
+    if(n>=0 && n<price){
+        price-=n;
+    }else{
+        throw std::invalid_argument("Invalid input for discount by value. "
+                                    "Input ignored...please try again.");
+    }
+}
 template <typename T, typename U>
-void Vehicle<T, U>::raisePriceValue(T n) {price+=n;}
+void Vehicle<T, U>::raisePriceValue(T n) {
+    if(n>=0){
+        price+=n;
+    }else{
+        throw std::invalid_argument("Invalid input raise by value. Input "
+                                    "ignored...please try again. ");
+    }
+}
 
 // --- Set Functions ---
 template <typename T, typename U>
 void Vehicle<T, U>::setVehicleMake(U m) {make=m;}
 template <typename T, typename U>
 void Vehicle<T, U>::setVehicleModel(U m) {make=m;}
+
+
 template <typename T, typename U>
-void Vehicle<T, U>::setVehiclePrice(T n) {price=n;}
+void Vehicle<T, U>::setVehiclePrice(T n) {
+    if(n>=0){
+        price=n;
+    }else{
+        throw std::invalid_argument("Invalid input for vehicle price. Input "
+                                    "ignored...please try again.");
+    }
+}
+
 template <typename T, typename U>
-void Vehicle<T, U>::setVehicleProdYear(T n) {productionYear=n;}
+void Vehicle<T, U>::setVehicleProdYear(T n) {
+    if(n > 1885){
+       productionYear = n;
+    }else{
+        throw std::invalid_argument("Invalid input for production year of "
+                                    "vehicle. Input ignored.");
+    }
+}
+
 template <typename T, typename U>
 void Vehicle<T, U>::setVehicleTransmission(U trans) {transmission=trans;}
-
 
 // --- Get Functions ---
 template <typename T, typename U>

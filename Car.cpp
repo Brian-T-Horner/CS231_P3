@@ -9,6 +9,7 @@
 // 11/13 2021 Fixed templates to accept two types
 // 11/13/2021 Added start procedure function implementation
 // 11/13/2021 Added window sticker function implementation
+// 11/13/2021 Added exception handling for car doors
 
 // Standard Library Includes
 #include <iostream>
@@ -39,7 +40,13 @@ Car<T, U>::Car(U carMake, U carModel, T carProdYear, T carPrice, U carTrans,
                U color, T doors, U type):Vehicle<T, U>(carMake, carModel,
                                                 carProdYear, carPrice, carTrans) {
     carColor = color;
-    carDoors = doors;
+    if (doors>=0){
+        carDoors = doors;
+    }else{
+        throw std::invalid_argument("Error: Car can not have negative doors. "
+                                    "Input ignored, please try again.");
+    }
+
     carType = type;
     std::cout << "Car has been created with the following attributes.\n" <<
                  "Car Color: " <<this->carColor <<std::endl<<
@@ -54,8 +61,18 @@ Car<T, U>::Car(U carMake, U carModel, T carProdYear, T carPrice, U carTrans,
 // --- Set Functions ---
 template <typename T, typename U>
 void Car<T, U>::setCarColor(U color) {carColor = color;}
+
 template <typename T, typename U>
-void Car<T, U>::setCarDoors(T doors) {carDoors = doors;}
+void Car<T, U>::setCarDoors(T doors) {
+    if (doors>=0){
+        carDoors = doors;
+    }else{
+        throw std::invalid_argument("Error: Car can not have negative doors. "
+                                    "Input ignored, please try again.");
+    }
+}
+
+
 template <typename T, typename U>
 void Car<T, U>::setCarType(U type) {carType = type;}
 

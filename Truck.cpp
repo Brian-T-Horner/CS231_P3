@@ -8,6 +8,7 @@
 // 11/13/2021 Added virtual functions implementations
 // 11/13/2021 Added start procedure function implementation
 // 11/13/2021 Added window sticker function implementation
+// 11/13/2021 Added exception handling for truck weight limit
 
 // Standard Library Includes
 #include <iostream>
@@ -66,7 +67,15 @@ void Truck<T, U>::setTruckBedContents(U contentsString)
 {truckContents=contentsString;}
 
 template <typename T, typename U>
-void Truck<T, U>::setTruckBedMaxLoad(T weight) {truckBedMaxLoad = weight;}
+void Truck<T, U>::setTruckBedMaxLoad(T weight) {
+    if(weight >=0){
+        truckBedMaxLoad = weight;
+    }else{
+        throw std::invalid_argument("Error: Truck can not have a weight limit"
+                                    " of less than 0. Input ignored, please "
+                                    "try again");
+    }
+}
 
 template <typename T, typename U>
 void Truck<T, U>::setTruckColor(U color) {truckColor=color;}

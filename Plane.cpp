@@ -7,6 +7,7 @@
 // 11/13/2021 Added constructor, destructor, set, get and virtual functions
 // 11/13/2021 Added start procedure function implementation
 // 11/13/2021 Added window sticker function implementation
+// 11/13/2021 Added exception handling to passengers, engines, total seats
 
 // Standard Library Includes
 #include <iostream>
@@ -40,9 +41,31 @@ trans,T nPassengers, T nEngines,T totSeats, T availSeats,
                    U callSign):Vehicle<T, U>(planeMake, planeModel,
                                              planeProdYear, planePrice,
                                              trans) {
-                       numOfPassengers = nPassengers;
-                       numOfEngines = nEngines;
-                       totalSeats = totSeats;
+                       if (nPassengers>=0){
+                           numOfPassengers = nPassengers;
+                       }else{
+                           throw std::invalid_argument("Error: Can not have "
+                                                       "negative passengers. "
+                                                       "Input ignored, please"
+                                                       " try again.");
+                       }
+                       if (nEngines >=0){
+                           numOfEngines = nEngines;
+                       }else{
+                           throw std::invalid_argument("Error: Can not have "
+                                                       "negative engines. "
+                                                       "Input ignored, please"
+                                                       " try again.");
+                       }
+                       if(totSeats>=0){
+                           totalSeats = totSeats;
+                       }else{
+                           throw std::invalid_argument("Error: Can not have "
+                                                       "negative total seats."
+                                                       " Input ignored, "
+                                                       "please try again.");
+                       }
+                       //Left without exception handling in case overbooked
                        availableSeats = availSeats;
                        planeCallSign = callSign;
 
@@ -61,13 +84,36 @@ trans,T nPassengers, T nEngines,T totSeats, T availSeats,
 
 // --- Set Functions ---
 template <typename T, typename U>
-void Plane<T, U>::setNumOfPassengers(T n) {numOfPassengers=n;}
+void Plane<T, U>::setNumOfPassengers(T n) {
+    if(n>=0){
+        numOfPassengers=n;
+    }else{
+        throw std::invalid_argument("Error: Can not have negative passengers."
+                                    " Input ignored, please try again.");
+    }
+}
 
 template <typename T, typename U>
-void Plane<T, U>::setNumOfEngines(T n) {numOfEngines=n;}
+void Plane<T, U>::setNumOfEngines(T n) {
+    if(n>=0){
+        numOfEngines=n;
+    }else{
+        throw std::invalid_argument("Error: Can not have negative engines. "
+                                    "Input ignored, please try again.");
+    }
+}
 
 template<typename T, typename U>
-void Plane<T, U>::setTotalSeats(T n) {totalSeats=n;}
+void Plane<T, U>::setTotalSeats(T n) {
+    if(n>=0){
+        totalSeats = n;
+    }else{
+        throw std::invalid_argument("Error: Can not have "
+                                    "negative total seats."
+                                    " Input ignored, "
+                                    "please try again.");
+    }
+}
 
 template<typename T, typename U>
 void Plane<T, U>::setAvailableSeats(T n) {availableSeats=n;}
