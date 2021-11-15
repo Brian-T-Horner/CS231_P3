@@ -18,8 +18,6 @@
 
 int main(){
 
-    // -- Array of Vehicles
-
     // -- Vehicle Tests --
 
     std::cout << "\n-- Vehicle Constructor Tests -- \n";
@@ -201,8 +199,18 @@ int main(){
 
 
     // -- Truck Tests
-
+    std::cout << "\n-- Truck Constructor Tests -- \n";
+    std::cout << "\n-- Truck Set and Get Tests -- \n";
+    std::cout << "\n-- Truck Virtual Functions Tests -- \n";
+    std::cout << "\n-- Truck Inherited Methods Tests -- \n";
     // -- Plane Test --
+    std::cout << "\n-- Plane Constructor Tests -- \n";
+    std::cout << "\n-- Plane Set and Get Tests -- \n";
+    std::cout << "\n-- Plane Virtual Functions Tests -- \n";
+    std::cout << "\n-- Plane Inherited Methods Tests -- \n";
+
+    // -- Array of Vehicles
+    std::cout << "\n-- Array of Vehicles -- \n";
 
 
     return 0;
