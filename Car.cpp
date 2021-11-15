@@ -7,6 +7,7 @@
 // 11/13/2021 Added constructor, get & set functions and destructor
 // 11/13/2021 Added virtual function overrides
 // 11/13 2021 Fixed templates to accept two types
+// 11/13/2021 Added start procedure function implementation
 
 // Standard Library Includes
 #include <iostream>
@@ -63,7 +64,12 @@ T Car<T, U>::getCarDoors() const {return carDoors;}
 template <typename T, typename U>
 void Car<T, U>::start() const {
     Vehicle<T, U>::start();
-    std::cout << "..." <<std::endl;
+    std::cout <<
+    "2. Press in brake pedal.\n" <<
+    "3. Turn key over.\n" <<
+    "4. Move shifter into drive or reverse according to surroundings.\n" <<
+    "5. If reversed move into position to be able to drive forward." <<
+    std::endl;
 }
 
 template <typename T, typename U>

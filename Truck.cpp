@@ -6,6 +6,7 @@
 // 11/12/2021 Initial Version
 // 11/13/2021 Added constructor, set, get and destructor implementations
 // 11/13/2021 Added virtual functions implementations
+// 11/13/2021 Added start procedure function implementation
 
 // Standard Library Includes
 #include <iostream>
@@ -72,7 +73,13 @@ void Truck<T, U>::setTruckColor(U color) {truckColor=color;}
 template <typename T, typename U>
 void Truck<T, U>::start() const {
     Vehicle<T, U>::start();
-    std::cout << "..." <<std::endl;
+    std::cout <<
+    "2. Press in brake pedal.\n" <<
+    "3. Turn key over.\n" <<
+    "4. Press in clutch pedal.\n" <<
+    "5. Move shifter into 1st gear.\n" <<
+    "6. Continue to shift up or downshift as necessary."<<
+    std::endl;
 }
 
 template <typename T, typename U>

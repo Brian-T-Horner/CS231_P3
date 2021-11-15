@@ -5,6 +5,7 @@
 // Edit History:
 // 11/12/2021 Initial Version
 // 11/13/2021 Added constructor, destructor, set, get and virtual functions
+// 11/13/2021 Added start procedure function implementation
 
 // Standard Library Includes
 #include <iostream>
@@ -99,7 +100,17 @@ void Plane<T, U>::start() const {
 template <typename T, typename U>
 void Plane<T, U>::displayWindowSticker() const {
     Vehicle<T, U>::displayWindowSticker();
-    std::cout<< "..." <<std::endl;
+    std::cout<<
+    "2. Press ignition button.\n" <<
+    "3. Release brakes from planes landing gear.\n" <<
+    "4. Allow plane to be backed up onto runway by tow.\n" <<
+    "5. Initiation takeoff procedure.\n" <<
+    "6. Accelerate to ideal velocity with acceleration lever.\n" <<
+    "7. Once at ideal acceleration. Pull down on steering yolk to take off"
+    ".\n" <<
+    "8. Continue to fly as normal. See paper manual for landing instructions"
+    "." <<
+    std::endl;
 }
 // --- Destructor --
 template <typename T, typename U>

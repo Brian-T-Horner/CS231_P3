@@ -5,6 +5,7 @@
 // 11/12/2021 Initial Version
 // 11/13/2021 Added get and set functions
 // 11/13/2021 Fixed specification and implementation for two types
+// 11/13/2021 Added start procedure function implementation
 
 // Standard Library Includes
 #include <iostream>
@@ -72,7 +73,8 @@ T Vehicle<T, U>::getVehiclePrice() const {return price;}
 // --- Virtual Functions --
 template <typename T, typename U>
 void Vehicle<T, U>::start() const {
-    std::cout << "..." <<std::endl;
+    std::cout << "Steps to start: \n" <<
+    "1. Insert key into ignition.\n";
 }
 
 template <typename T, typename U>
