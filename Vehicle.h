@@ -6,7 +6,7 @@
 // 11/13/2021 Added virtual functions for start and window sticker
 // 11/13 2021 Fixed templates to accept two types
 // 11/13/2021 Added transmission type attribute with respective methods
-
+// 11/13/2021 Added price manipulating methods
 
 #ifndef VEHICLE_H
 #define VEHICLE_H
@@ -23,6 +23,11 @@ public:
     Vehicle(); //Constructor
     Vehicle(U m, U model, T prodYear, T price, U trans);
 
+    // Sale methods
+    void giveDiscountPercent(T n);
+    void giveDiscountValue(T n);
+    void raisePricePercent(T n);
+    void raisePriceValue(T n);
 
     // Set funcs
     void setVehicleMake(U m);

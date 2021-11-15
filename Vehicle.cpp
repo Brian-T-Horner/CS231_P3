@@ -8,6 +8,7 @@
 // 11/13/2021 Added start procedure function implementation
 // 11/13/2021 Added window sticker function implementation
 // 11/13/2021 Added transmission type attribute and methods
+// 11/13/2021 Added price manipulating methods
 
 // Standard Library Includes
 #include <iostream>
@@ -50,8 +51,19 @@ Vehicle<T, U>::Vehicle(U m, U mo, T prodYear, T p, U trans){
 
 }
 
+// Sale Methods
 
+// Percent price changes
+template <typename T, typename U>
+void Vehicle<T, U>::giveDiscountPercent(T n) {price = price-(price * (n/100));}
+template <typename T, typename U>
+void Vehicle<T, U>::raisePricePercent(T n) {price = price + (price* (n/100));}
 
+// Value price changes
+template <typename T, typename U>
+void  Vehicle<T, U>::giveDiscountValue(T n) {price-=n;}
+template <typename T, typename U>
+void Vehicle<T, U>::raisePriceValue(T n) {price+=n;}
 
 // --- Set Functions ---
 template <typename T, typename U>
