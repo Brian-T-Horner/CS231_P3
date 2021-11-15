@@ -58,7 +58,7 @@ Vehicle<T, U>::Vehicle(U m, U mo, T prodYear, T p, U trans){
 
 }
 
-// Sale Methods
+// -- Sale Methods --
 
 // Percent price changes
 template <typename T, typename U>
@@ -106,7 +106,7 @@ void Vehicle<T, U>::raisePriceValue(T n) {
 template <typename T, typename U>
 void Vehicle<T, U>::setVehicleMake(U m) {make=m;}
 template <typename T, typename U>
-void Vehicle<T, U>::setVehicleModel(U m) {make=m;}
+void Vehicle<T, U>::setVehicleModel(U m) {model=m;}
 
 
 template <typename T, typename U>
@@ -115,7 +115,7 @@ void Vehicle<T, U>::setVehiclePrice(T n) {
         price=n;
     }else{
         throw std::invalid_argument("Invalid input for vehicle price. Input "
-                                    "ignored...please try again.");
+                                    "ignored, please try again.");
     }
 }
 
@@ -125,7 +125,7 @@ void Vehicle<T, U>::setVehicleProdYear(T n) {
        productionYear = n;
     }else{
         throw std::invalid_argument("Invalid input for production year of "
-                                    "vehicle. Input ignored.");
+                                    "vehicle. Input ignored, please try again");
     }
 }
 
@@ -154,7 +154,7 @@ void Vehicle<T, U>::start() const {
 template <typename T, typename U>
 void Vehicle<T, U>::displayWindowSticker() const {
     std::cout <<
-    "Current Information:" <<std::endl<<
+    "\nCurrent Information:" <<std::endl<<
     "Make: " <<this->make << std::endl <<
     "Model: " << this->model << std::endl <<
     "Price: " <<this->price <<std::endl <<
