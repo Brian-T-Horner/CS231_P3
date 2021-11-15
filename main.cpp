@@ -4,7 +4,8 @@
 // Edit History:
 // 11/12/2021 Initial Version
 // 11/14/2021 Added tests for Vehicle Class
-// 11/14/2021 Added test for Car child Class
+// 11/14/2021 Added tests for Car child Class
+// 11/14/2021 Added tests for Truck child Class
 
 // Standard Library Includes
 #include <iostream>
@@ -200,9 +201,72 @@ int main(){
 
     // -- Truck Tests
     std::cout << "\n-- Truck Constructor Tests -- \n";
+
+    Truck<unsigned int, std::string> patsTruck("Ford", "F150", 2020, 50'000, "Automatic", "Black", 2'000, "Gravel");
+    Truck<int, std::string> jacksTruck;
+    Truck<double, std::string> chansTruck;
+
     std::cout << "\n-- Truck Set and Get Tests -- \n";
+
+    chansTruck.setTruckColor("Blue");
+    std::cout << "Chan's truck is " <<chansTruck.getTruckColor() <<std::endl;
+
+    jacksTruck.setTruckBedContents("Lumber");
+    std::cout << "Jack's truck contains " <<jacksTruck.getTruckContents() <<std::endl;
+
+    try{
+        jacksTruck.setTruckBedMaxLoad(-1);
+    }catch(const std::invalid_argument& e){
+        std::cout <<"Exception from " <<e.what() <<std::endl;
+    }
+
+    try{
+        jacksTruck.setTruckBedMaxLoad(10'000);
+    }catch(const std::invalid_argument& e){
+        std::cout <<"Exception from " <<e.what() <<std::endl;
+    }
+
+    std::cout << "Jack's Truck has a max load of " <<jacksTruck.getTruckMaxLoad() <<std::endl;
+
+    // Truck virtual function tests
     std::cout << "\n-- Truck Virtual Functions Tests -- \n";
+    patsTruck.start();
+    patsTruck.displayWindowSticker();
+
+
+    // Trucks inherited method tests
     std::cout << "\n-- Truck Inherited Methods Tests -- \n";
+
+    patsTruck.setVehicleMake("Chevy");
+    std::cout<< "Pat's truck is a " <<patsTruck.getVehicleMake()<<std::endl;
+    patsTruck.setVehicleModel("Silverado");
+    std::cout << "Pat's truck is a " <<patsTruck.getVehicleModel()<<std::endl;
+
+    try{
+        patsTruck.setVehicleProdYear(-1);
+    }catch(const std::invalid_argument& e){
+        std::cout <<"Exception from " <<e.what() <<std::endl;
+    }
+    try{
+        patsTruck.setVehicleProdYear(1990);
+    }catch(const std::invalid_argument& e){
+        std::cout <<"Exception from " <<e.what() <<std::endl;
+    }
+    std::cout << "Pat's truck has a production year of  " <<patsTruck.getVehicleProdYear()<<std::endl;
+
+    try{
+        chansTruck.setVehiclePrice(-1);
+    }catch(const std::invalid_argument& e){
+        std::cout <<"Exception from " <<e.what() <<std::endl;
+    }
+    try{
+        chansTruck.setVehiclePrice(40'000);
+    }catch(const std::invalid_argument& e){
+        std::cout <<"Exception from " <<e.what() <<std::endl;
+    }
+
+    std::cout <<"Chan's truck has a price of "<<chansTruck.getVehiclePrice()
+
     // -- Plane Test --
     std::cout << "\n-- Plane Constructor Tests -- \n";
     std::cout << "\n-- Plane Set and Get Tests -- \n";
