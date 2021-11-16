@@ -116,7 +116,15 @@ void Plane<T, U>::setTotalSeats(T n) {
 }
 
 template<typename T, typename U>
-void Plane<T, U>::setAvailableSeats(T n) {availableSeats=n;}
+void Plane<T, U>::setAvailableSeats(T n) {
+    if(n>=0){
+        availableSeats=n;
+}else{
+        throw std::invalid_argument("Error: Check reservations of seats. "
+                                    "Negative available seats is not allowed."
+                                    "Input ignored, please try agian. ");
+    }
+}
 
 template<typename T, typename U>
 void Plane<T, U>::setPlaneCallSign(U s) {planeCallSign=s;}
