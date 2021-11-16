@@ -32,7 +32,7 @@ Plane<T, U>::Plane():Vehicle<T, U>(){
     std::cout << "Plane has been created. Please set the make, model, "
                  "production year, price, number of passengers, number of "
                  "engines, total seats, available seats, and plane call sign"
-                 "." <<std::endl;
+                 ".\n" <<std::endl;
 }
 
 template <typename T, typename U>

@@ -48,7 +48,7 @@ Vehicle<T, U>::Vehicle(U m, U mo, T prodYear, T p, U trans){
     }
     price = p;
     transmission = trans;
-    std::cout << "Vehicle has been created with the following attributes:" <<
+    std::cout << "Vehicle has been created with the following attributes:\n" <<
                  "Make: " <<this->make <<".\n" <<
                  "Model: " <<this->model <<".\n" <<
                  "Production Year: " <<this->productionYear <<".\n"<<

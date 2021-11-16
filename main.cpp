@@ -7,10 +7,13 @@
 // 11/14/2021 Added tests for Car child Class
 // 11/14/2021 Added tests for Truck child Class
 // 11/14/2021 Added tests for Plane child class
-// 11/14/2021 Added array of vehicles
+// 11/14/2021 Added vector of vehicles, displaying virtual funcs
+// 11/14/2021 Freed memory from vehicle children on stack
 
 // Standard Library Includes
 #include <iostream>
+#include <memory>
+#include <vector>
 
 
 // User built Includes:
@@ -205,7 +208,7 @@ int main(){
     std::cout << "\n-- Truck Constructor Tests -- \n";
 
     Truck<unsigned int, std::string> patsTruck("Ford", "F150", 2020, 50'000, "Automatic", "Black", 2'000, "Gravel");
-    Truck<int, std::string> jacksTruck;
+    Truck<unsigned int, std::string> jacksTruck;
     Truck<double, std::string> chansTruck;
 
     std::cout << "\n-- Truck Set and Get Tests -- \n";
@@ -267,12 +270,13 @@ int main(){
         std::cout <<"Exception from " <<e.what() <<std::endl;
     }
 
-    std::cout <<"Chan's truck has a price of "<<chansTruck.getVehiclePrice();
+    std::cout <<"Chan's truck has a price of "<<chansTruck.getVehiclePrice()
+    <<std::endl;
 
     // -- Plane Test --
     std::cout << "\n-- Plane Constructor Tests -- \n";
     Plane<int, std::string> tomsPlane;
-    Plane<double, std::string> bertsPlane;
+    Plane<unsigned int, std::string> bertsPlane;
     Plane<unsigned int, std::string> airforceOne("Boeing", "747", 2018,
                                                  10'000'000, "N/A", 0, 6,
                                                  100, 100, "Airforce One");
@@ -359,26 +363,62 @@ int main(){
         std::cout <<"Exception from " <<e.what() <<std::endl;
     }
 
-    std::cout <<"Tom's plane has a price of "<<tomsPlane.getVehiclePrice();
+    std::cout <<"Tom's plane has a price of "<<tomsPlane.getVehiclePrice()
+    <<std::endl;
 
 
     // -- Array of Vehicles
     std::cout << "\n-- Array of Vehicles -- \n";
 
-    Vehicle<unsigned int, std::string> *arrayOfVehicles[];
-    arrayOfVehicles[0] = &airforceOne;
-    arrayOfVehicles[1] = patsTruck;
-    arrayOfVehicles[2] = bertsPlane;
-    arrayOfVehicles[3] = chansTruck;
-    arrayOfVehicles[4] = briansCar;
-    arrayOfVehicles[5] = camisCar;
+    std::vector<Vehicle<unsigned int,std::string>*> vehiclesOnLot;
 
-    // Showing showinfo for jar and labeled jars
-    for (int i = 0; i < 6; i++) {
-        arrayOfVehicles[i]->start();
-        arrayOfVehicles[i]->displayWindowSticker();
+    vehiclesOnLot.push_back(new Plane<unsigned int, std::string>("Boeing", "747", 2018,
+                                                                 10'000'000, "N/A", 0, 6,
+                                                                 100, 100,
+                                                                 "SUPER"));
+    vehiclesOnLot.push_back(new Plane<unsigned int, std::string>("Airbus",
+                                                                "560", 2020,
+                                                                11'000'000,
+                                                                "N/A", 100,
+                                                                6, 200, 100,
+                                                                "BUS"));
+    vehiclesOnLot.push_back(new Car<unsigned int, std::string>("Honda",
+                                                               "Accord",
+                                                               2021, 30'000,
+                                                               "Automatic",
+                                                               "Black", 4,
+                                                               "Coup" ));
+    vehiclesOnLot.push_back(new Car<unsigned int, std::string>("Jaguar", "316 Sport",
+                                                                        1980,100'000, "Manual",
+                                                                        "Silver",2, "Convertible"));
+
+    vehiclesOnLot.push_back(new Truck<unsigned int, std::string>("Chevy",
+                                                                 "Silverado",
+                                                                 2011,
+                                                                 15'000,
+                                                                 "Manual",
+                                                                 "Black",
+                                                                 5'000,
+                                                                 "Empty"));
+    vehiclesOnLot.push_back(new Truck<unsigned int, std::string>("Ford",
+                                                                 "F150",
+                                                                 2016,
+                                                                 30'000,
+                                                                 "Automatic",
+                                                                 "Black",
+                                                                 10'000,
+                                                                 "Empty"));
+
+    // displaying virtual functions for each vehicle in vector
+    for (int i{0}; i<6; i++){
+        std::cout << "\n-- Vehicle " <<i+1 <<" on lots stats are --";
+        vehiclesOnLot[i]->start();
+        vehiclesOnLot[i]->displayWindowSticker();
     }
 
-
+    // freeing memory back off stack
+    for(int i{5}; i>=0; i--){
+        delete vehiclesOnLot[i];
+    }
     return 0;
 }
