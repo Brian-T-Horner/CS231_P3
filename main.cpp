@@ -7,6 +7,7 @@
 // 11/14/2021 Added tests for Car child Class
 // 11/14/2021 Added tests for Truck child Class
 // 11/14/2021 Added tests for Plane child class
+// 11/14/2021 Added array of vehicles
 
 // Standard Library Includes
 #include <iostream>
@@ -363,6 +364,20 @@ int main(){
 
     // -- Array of Vehicles
     std::cout << "\n-- Array of Vehicles -- \n";
+
+    Vehicle<unsigned int, std::string> *arrayOfVehicles[];
+    arrayOfVehicles[0] = &airforceOne;
+    arrayOfVehicles[1] = patsTruck;
+    arrayOfVehicles[2] = bertsPlane;
+    arrayOfVehicles[3] = chansTruck;
+    arrayOfVehicles[4] = briansCar;
+    arrayOfVehicles[5] = camisCar;
+
+    // Showing showinfo for jar and labeled jars
+    for (int i = 0; i < 6; i++) {
+        arrayOfVehicles[i]->start();
+        arrayOfVehicles[i]->displayWindowSticker();
+    }
 
 
     return 0;
